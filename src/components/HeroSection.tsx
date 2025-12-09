@@ -1,17 +1,14 @@
-import heroVideo from '@/assets/hero-video.mp4';
+import heroImage from '@/assets/hero-cafe.png';
 
 const HeroSection = () => {
   return (
     <section id="home" className="relative px-4 md:px-8 pb-8">
       <div className="max-w-5xl mx-auto">
         <div className="relative rounded-lg overflow-hidden shadow-2xl">
-          {/* Hero Video */}
-          <video
-            src={heroVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
+          {/* Hero Image */}
+          <img
+            src={heroImage}
+            alt="Cozy outdoor cafe courtyard at twilight with string lights and swing chairs"
             className="w-full h-[50vh] md:h-[60vh] lg:h-[70vh] object-cover"
           />
           
