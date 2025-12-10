@@ -106,6 +106,14 @@ export default {
           "0%": { opacity: "0", transform: "scale(0.95)" },
           "100%": { opacity: "1", transform: "scale(1)" },
         },
+        "gate-open-left": {
+          "0%": { transform: "rotateY(0deg)" },
+          "100%": { transform: "rotateY(-105deg)" },
+        },
+        "gate-open-right": {
+          "0%": { transform: "rotateY(0deg)" },
+          "100%": { transform: "rotateY(105deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -113,6 +121,8 @@ export default {
         "fade-in-up": "fade-in-up 0.8s ease-out forwards",
         "fade-in": "fade-in 1s ease-out forwards",
         "scale-in": "scale-in 0.6s ease-out forwards",
+        "gate-open-left": "gate-open-left 2s cubic-bezier(0.4, 0, 0.2, 1) forwards",
+        "gate-open-right": "gate-open-right 2s cubic-bezier(0.4, 0, 0.2, 1) forwards",
       },
     },
   },
