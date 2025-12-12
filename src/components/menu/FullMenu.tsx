@@ -19,26 +19,26 @@ const listCardSections = ['coolers', 'coffee', 'hot-beverages', 'cold-coffee'];
 // Sections that have platters (full width cards)
 const platterTitles = ['Veg Platter', 'Non Veg Platter', 'Continental Platter Veg', 'Continental Platter Non Veg', 'Non Veg Hummus Platter', 'Veg Hummus Platter'];
 
-// Sections that get subsection headers (brown with diagonal cut)
-const subsectionHeaders = ['appetizers', 'burgers', 'desserts'];
+// Sections that get banner headers (warm chocolate background)
+const bannerSections = ['appetizers', 'desserts'];
 
 const FullMenu = () => {
   return (
-    <div className="bg-[#FFFBF2] py-6">
+    <div className="bg-midnight py-12">
       <div className="max-w-2xl mx-auto">
         {menuSections.map((section) => {
           const isDrinkCardSection = drinkCardSections.includes(section.id);
           const isListCardSection = listCardSections.includes(section.id);
-          const isSubsection = subsectionHeaders.includes(section.id);
+          const isBannerSection = bannerSections.includes(section.id);
           
           return (
             <section 
               key={section.id} 
               id={section.id}
-              className="mb-8 scroll-mt-32"
+              className="mb-12 scroll-mt-32"
             >
-              {/* Header - Orange for main sections, Brown diagonal for subsections */}
-              {isSubsection ? (
+              {/* Header - Banner style or elegant gold */}
+              {isBannerSection ? (
                 <BannerHeader title={section.title} subtitle={section.subtitle} />
               ) : (
                 <SectionHeader title={section.title} subtitle={section.subtitle} />
