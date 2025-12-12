@@ -19,26 +19,26 @@ const listCardSections = ['coolers', 'coffee', 'hot-beverages', 'cold-coffee'];
 // Sections that have platters (full width cards)
 const platterTitles = ['Veg Platter', 'Non Veg Platter', 'Continental Platter Veg', 'Continental Platter Non Veg', 'Non Veg Hummus Platter', 'Veg Hummus Platter'];
 
-// Sections that get banner headers (brown background)
-const bannerSections = ['appetizers', 'pizza', 'burgers', 'desserts', 'coffee'];
+// Sections that get subsection headers (brown with diagonal cut)
+const subsectionHeaders = ['appetizers', 'burgers', 'desserts'];
 
 const FullMenu = () => {
   return (
-    <div className="bg-warm-cream py-8">
-      <div className="max-w-4xl mx-auto">
+    <div className="bg-[#FFFBF2] py-6">
+      <div className="max-w-2xl mx-auto">
         {menuSections.map((section) => {
           const isDrinkCardSection = drinkCardSections.includes(section.id);
           const isListCardSection = listCardSections.includes(section.id);
-          const isBannerSection = bannerSections.includes(section.id);
+          const isSubsection = subsectionHeaders.includes(section.id);
           
           return (
             <section 
               key={section.id} 
               id={section.id}
-              className="mb-10 scroll-mt-24"
+              className="mb-8 scroll-mt-32"
             >
-              {/* Header - Banner style or simple */}
-              {isBannerSection ? (
+              {/* Header - Orange for main sections, Brown diagonal for subsections */}
+              {isSubsection ? (
                 <BannerHeader title={section.title} subtitle={section.subtitle} />
               ) : (
                 <SectionHeader title={section.title} subtitle={section.subtitle} />
@@ -47,20 +47,14 @@ const FullMenu = () => {
               {/* Cards Grid */}
               {isListCardSection ? (
                 // List layout for drinks
-                <div className="px-2.5 mt-4">
+                <div className="px-4">
                   {section.items.map((item) => (
                     <ListCard key={item.title} item={item} />
                   ))}
                 </div>
               ) : (
                 // Grid layout for food/drinks with images
-                <div className={`grid gap-3 px-2.5 ${
-                  isBannerSection ? 'mt-0 bg-warm-cream rounded-b-2xl py-4' : 'mt-4'
-                } ${
-                  isDrinkCardSection 
-                    ? 'grid-cols-2 md:grid-cols-3' 
-                    : 'grid-cols-2 md:grid-cols-3'
-                }`}>
+                <div className="grid grid-cols-2 gap-4 px-4">
                   {section.items.map((item) => {
                     const isPlatter = platterTitles.includes(item.title);
                     
