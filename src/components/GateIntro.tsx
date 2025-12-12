@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Ornament from './Ornament';
 
 interface GateIntroProps {
   onComplete: () => void;
@@ -95,26 +94,7 @@ const GateIntro = ({ onComplete }: GateIntroProps) => {
           </div>
         </div>
 
-        {/* Center Logo - On top of doors when closed */}
-        <div 
-          className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-center transition-opacity duration-500 ${isOpening ? 'opacity-0' : 'opacity-100'}`}
-        >
-          <div className="flex items-center justify-center gap-2 md:gap-4 mb-2">
-            <Ornament className="text-gold w-8 md:w-auto rotate-180" />
-            <h1 className="font-script text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-gold drop-shadow-lg whitespace-nowrap">
-              Baari Café
-            </h1>
-            <Ornament className="text-gold w-8 md:w-auto" />
-          </div>
-          <p className="font-serif text-gold-light/80 text-xs md:text-sm tracking-[0.3em] uppercase">
-            Champa Gali
-          </p>
-        </div>
 
-        {/* Decorative top arch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 md:w-48 h-8 md:h-12">
-          <div className="w-full h-full gate-arch rounded-b-full" />
-        </div>
       </div>
 
       {/* Skip button */}
