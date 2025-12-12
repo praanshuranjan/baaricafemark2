@@ -19,6 +19,18 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        // JugMug Colors
+        'bg-cream': 'hsl(var(--bg-cream))',
+        'card-white': 'hsl(var(--card-white))',
+        'primary-brown': 'hsl(var(--primary-brown))',
+        'primary-orange': 'hsl(var(--primary-orange))',
+        'text-dark': 'hsl(var(--text-dark))',
+        'text-gray': 'hsl(var(--text-gray))',
+        'nav-green': 'hsl(var(--nav-green))',
+        'nav-green-border': 'hsl(var(--nav-green-border))',
+        'veg-green': 'hsl(var(--veg-green))',
+        'nonveg-red': 'hsl(var(--nonveg-red))',
+        'border-light': 'hsl(var(--border-light))',
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

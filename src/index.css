@@ -4,6 +4,18 @@
 
 @layer base {
   :root {
+    /* JugMug Color Palette */
+    --bg-cream: 47 100% 97%;          /* #FFFBF2 */
+    --card-white: 0 0% 100%;          /* #FFFFFF */
+    --primary-brown: 24 57% 23%;      /* #5C3019 */
+    --primary-orange: 25 70% 47%;     /* #D2691E */
+    --text-dark: 14 38% 18%;          /* #3E2723 */
+    --text-gray: 0 0% 33%;            /* #555555 */
+    --nav-green: 120 20% 80%;         /* #C4D7C4 */
+    --nav-green-border: 120 15% 70%;  /* #A8BFA8 */
+    --veg-green: 120 61% 34%;         /* #228B22 */
+    --nonveg-red: 0 61% 40%;          /* #A52A2A */
+    --border-light: 40 20% 87%;       /* #E0E0E0 */
     /* Midnight Blue Theme */
     --background: 213 73% 12%;
     --foreground: 43 45% 92%;
