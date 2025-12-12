@@ -78,10 +78,16 @@ export default {
         success: "hsl(var(--success))",
         danger: "hsl(var(--danger))",
         warning: "hsl(var(--warning))",
+        chocolate: "hsl(var(--chocolate))",
+        "chocolate-dark": "hsl(var(--chocolate-dark))",
+        "warm-cream": "hsl(var(--warm-cream))",
       },
       fontFamily: {
         script: ['Great Vibes', 'cursive'],
         serif: ['Playfair Display', 'serif'],
+        slab: ['Alfa Slab One', 'cursive'],
+        body: ['Merriweather', 'serif'],
+        sans: ['Open Sans', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
