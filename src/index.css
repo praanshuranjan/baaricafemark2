@@ -118,6 +118,10 @@ html {
     color: hsl(var(--cream));
   }
 
+  .text-midnight {
+    color: hsl(var(--midnight));
+  }
+
   .bg-midnight {
     background-color: hsl(var(--midnight));
   }
@@ -126,8 +130,16 @@ html {
     background-color: hsl(var(--midnight-deep));
   }
 
+  .bg-midnight-light {
+    background-color: hsl(213 60% 18%);
+  }
+
   .bg-parchment {
     background-color: hsl(var(--parchment));
+  }
+
+  .bg-cream {
+    background-color: hsl(var(--cream));
   }
 
   .bg-forest {
@@ -136,6 +148,35 @@ html {
 
   .border-gold {
     border-color: hsl(var(--gold));
+  }
+
+  /* Diet indicator styles */
+  .border-success {
+    border-color: hsl(var(--success));
+  }
+
+  .border-danger {
+    border-color: hsl(var(--danger));
+  }
+
+  .border-warning {
+    border-color: hsl(var(--warning));
+  }
+
+  .bg-success {
+    background-color: hsl(var(--success));
+  }
+
+  .bg-danger {
+    background-color: hsl(var(--danger));
+  }
+
+  .bg-warning {
+    background-color: hsl(var(--warning));
+  }
+
+  .border-b-danger {
+    border-bottom-color: hsl(var(--danger));
   }
 
   /* Star twinkle animation */

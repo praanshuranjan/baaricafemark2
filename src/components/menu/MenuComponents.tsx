@@ -1,24 +1,27 @@
 import { PLACEHOLDER_IMAGE, DietType, MenuItem } from '@/data/menuData';
 
-// Diet Icon Component
+// Diet Icon Component - Bigger and clearer
 export const DietIcon = ({ type }: { type?: DietType }) => {
   if (!type) return null;
   
-  const iconStyles = {
-    veg: 'border-success bg-success',
-    'non-veg': 'border-danger bg-danger',
-    egg: 'border-warning bg-warning',
+  const configs = {
+    veg: { border: 'border-success', label: 'Vegetarian' },
+    'non-veg': { border: 'border-danger', label: 'Contains Chicken' },
+    egg: { border: 'border-warning', label: 'Contains Egg' },
   };
 
-  const innerStyles = {
-    veg: 'bg-success rounded-full',
-    'non-veg': 'w-0 h-0 border-l-[4px] border-r-[4px] border-b-[6px] border-l-transparent border-r-transparent border-b-danger',
-    egg: 'bg-warning rounded-full',
-  };
+  const config = configs[type];
 
   return (
-    <div className={`w-4 h-4 border-2 flex items-center justify-center ${iconStyles[type]}`}>
-      <div className={type === 'non-veg' ? innerStyles[type] : `w-2 h-2 ${innerStyles[type]}`} />
+    <div className="flex items-center gap-2">
+      <div className={`w-5 h-5 border-2 ${config.border} rounded-sm flex items-center justify-center bg-midnight/50`}>
+        {type === 'non-veg' ? (
+          <div className="w-0 h-0 border-l-[5px] border-r-[5px] border-b-[8px] border-l-transparent border-r-transparent border-b-danger" />
+        ) : (
+          <div className={`w-2.5 h-2.5 rounded-full ${type === 'veg' ? 'bg-success' : 'bg-warning'}`} />
+        )}
+      </div>
+      <span className="text-cream/60 text-xs hidden sm:inline">{config.label}</span>
     </div>
   );
 };
@@ -48,83 +51,108 @@ export const AddOnBox = ({ addOns }: { addOns: { name: string; price: string }[]
   </div>
 );
 
-// Food Card Component
+// Food Card Component - Redesigned based on reference
 export const FoodCard = ({ item }: { item: MenuItem }) => (
-  <div className="menu-card bg-midnight-light/30 border border-gold/10 rounded-xl overflow-hidden hover:border-gold/30 transition-all duration-300">
-    <div className="relative h-40 overflow-hidden">
+  <div className="menu-card bg-cream/95 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300">
+    {/* Image at top */}
+    <div className="relative h-44 overflow-hidden">
       <img 
         src={PLACEHOLDER_IMAGE} 
         alt={item.title}
         className="w-full h-full object-cover"
         loading="lazy"
       />
-      {item.dietType && (
-        <div className="absolute top-3 right-3 bg-midnight/80 p-1 rounded">
-          <DietIcon type={item.dietType} />
-        </div>
-      )}
       {item.smallText && (
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-midnight to-transparent p-2">
-          <span className="text-gold text-xs font-serif">{item.smallText}</span>
+        <div className="absolute top-3 left-3 bg-gold text-midnight text-xs font-bold px-2 py-1 rounded">
+          {item.smallText}
         </div>
       )}
     </div>
-    <div className="p-4">
-      <div className="flex justify-between items-start gap-2 mb-2">
-        <h3 className="font-serif text-cream text-lg leading-tight">{item.title}</h3>
-        <span className="text-gold font-serif font-semibold whitespace-nowrap">{item.price}</span>
-      </div>
+    
+    {/* Content */}
+    <div className="p-4 bg-cream">
+      {/* Title */}
+      <h3 className="font-serif text-gold text-lg font-semibold leading-tight mb-2">
+        {item.title}
+      </h3>
+      
+      {/* Description */}
       {item.description && (
-        <p className="text-cream/60 text-sm font-serif leading-relaxed">{item.description}</p>
+        <p className="text-midnight/70 text-sm font-serif leading-relaxed mb-3 line-clamp-3">
+          {item.description}
+        </p>
       )}
+      
+      {/* Bottom: Diet icon + Price */}
+      <div className="flex justify-between items-center pt-3 border-t border-gold/20">
+        <DietIcon type={item.dietType} />
+        <span className="text-midnight font-serif font-bold text-lg">{item.price}</span>
+      </div>
     </div>
   </div>
 );
 
-// Full Width Card for Platters
+// Full Width Card for Platters - Shows ingredients as small text
 export const FullWidthCard = ({ item }: { item: MenuItem }) => (
-  <div className="menu-card bg-midnight-light/30 border border-gold/10 rounded-xl overflow-hidden hover:border-gold/30 transition-all duration-300 col-span-full">
+  <div className="menu-card bg-cream/95 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 col-span-full">
     <div className="flex flex-col md:flex-row">
-      <div className="relative w-full md:w-48 h-40 md:h-auto overflow-hidden shrink-0">
+      {/* Image */}
+      <div className="relative w-full md:w-56 h-48 md:h-auto overflow-hidden shrink-0">
         <img 
           src={PLACEHOLDER_IMAGE} 
           alt={item.title}
           className="w-full h-full object-cover"
           loading="lazy"
         />
-        {item.dietType && (
-          <div className="absolute top-3 right-3 bg-midnight/80 p-1 rounded">
-            <DietIcon type={item.dietType} />
-          </div>
-        )}
       </div>
-      <div className="p-4 flex-1">
-        <div className="flex justify-between items-start gap-2 mb-2">
-          <h3 className="font-serif text-cream text-xl">{item.title}</h3>
-          <span className="text-gold font-serif font-semibold text-lg whitespace-nowrap">{item.price}</span>
+      
+      {/* Content */}
+      <div className="p-5 flex-1 bg-cream flex flex-col justify-between">
+        <div>
+          {/* Title */}
+          <h3 className="font-serif text-gold text-xl font-semibold mb-2">
+            {item.title}
+          </h3>
+          
+          {/* Description */}
+          {item.description && (
+            <p className="text-midnight/70 text-sm font-serif leading-relaxed mb-2">
+              {item.description}
+            </p>
+          )}
+          
+          {/* Ingredients as small text */}
+          {item.smallText && (
+            <p className="text-midnight/50 text-xs font-serif italic">
+              Includes: {item.smallText}
+            </p>
+          )}
         </div>
-        {item.description && (
-          <p className="text-cream/60 text-sm font-serif leading-relaxed mb-2">{item.description}</p>
-        )}
-        {item.smallText && (
-          <p className="text-gold/70 text-xs font-serif italic">{item.smallText}</p>
-        )}
+        
+        {/* Bottom: Diet icon + Price */}
+        <div className="flex justify-between items-center pt-4 mt-4 border-t border-gold/20">
+          <DietIcon type={item.dietType} />
+          <span className="text-midnight font-serif font-bold text-xl">{item.price}</span>
+        </div>
       </div>
     </div>
   </div>
 );
 
-// Drink Card Component
+// Drink Card Component - Simpler layout for beverages
 export const DrinkCard = ({ item }: { item: MenuItem }) => (
-  <div className="menu-card bg-midnight-light/20 border border-gold/10 rounded-lg p-4 hover:border-gold/30 transition-all duration-300">
-    <div className="flex justify-between items-center">
-      <div>
-        <h3 className="font-serif text-cream">{item.title}</h3>
+  <div className="menu-card bg-cream/95 rounded-lg p-4 hover:shadow-lg transition-all duration-300">
+    <div className="flex justify-between items-start gap-3">
+      <div className="flex-1">
+        <h3 className="font-serif text-gold text-base font-semibold">{item.title}</h3>
         {item.description && (
-          <p className="text-cream/50 text-xs mt-1">{item.description}</p>
+          <p className="text-midnight/60 text-xs mt-1 font-serif">{item.description}</p>
         )}
       </div>
-      <span className="text-gold font-serif font-semibold">{item.price}</span>
+      <div className="flex flex-col items-end gap-2">
+        {item.dietType && <DietIcon type={item.dietType} />}
+        <span className="text-midnight font-serif font-bold">{item.price}</span>
+      </div>
     </div>
   </div>
 );
