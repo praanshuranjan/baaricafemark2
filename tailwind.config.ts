@@ -75,6 +75,9 @@ export default {
           DEFAULT: "hsl(var(--forest))",
           light: "hsl(var(--forest-light))",
         },
+        success: "hsl(var(--success))",
+        danger: "hsl(var(--danger))",
+        warning: "hsl(var(--warning))",
       },
       fontFamily: {
         script: ['Great Vibes', 'cursive'],

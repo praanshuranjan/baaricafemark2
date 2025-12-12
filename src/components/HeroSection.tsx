@@ -25,10 +25,14 @@ const HeroSection = () => {
             </h2>
             
             <button 
+              onClick={() => {
+                const element = document.getElementById('appetizers');
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="px-8 py-3 bg-gold text-midnight-deep font-serif text-sm tracking-widest uppercase rounded-sm hover:bg-gold-light transition-all duration-300 shadow-lg hover:shadow-xl animate-fade-in-up border border-gold-dark"
               style={{ animationDelay: '0.5s' }}
             >
-              Book Your Cabana
+              Explore Menu
             </button>
           </div>
 

@@ -17,6 +17,7 @@ const Footer = () => {
         <div className="font-serif text-gold-light space-y-2 mb-8">
           <p className="text-sm tracking-wide">hello@baari-cafe.com | 123.456.7890</p>
           <p className="text-sm tracking-wide opacity-80">Champa Gali, South Delhi</p>
+          <p className="text-xs tracking-wide opacity-60 mt-2">Champa Gali Lane, 3, Westend Marg, Saiyad ul Ajaib, Saket, New Delhi, Delhi 110030</p>
         </div>
 
         {/* Social Icons */}
@@ -36,7 +37,9 @@ const Footer = () => {
             <Twitter size={20} />
           </a>
           <a 
-            href="#" 
+            href="https://instagram.com/baari.cafe" 
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-gold-light hover:text-gold transition-colors duration-300"
             aria-label="Instagram"
           >
