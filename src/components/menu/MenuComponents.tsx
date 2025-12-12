@@ -67,7 +67,7 @@ export const FoodCard = ({ item }: { item: MenuItem }) => (
     {/* Image at top */}
     <div className="relative">
       <img 
-        src={PLACEHOLDER_IMAGE} 
+        src={item.image || PLACEHOLDER_IMAGE} 
         alt={item.title}
         className="w-full h-36 object-cover"
         loading="lazy"
@@ -148,7 +148,7 @@ export const DrinkCard = ({ item }: { item: MenuItem }) => (
   <div className="menu-card bg-warm-cream rounded-xl overflow-hidden shadow-md border border-chocolate/10 hover:shadow-xl transition-shadow duration-300">
     {/* Image */}
     <img 
-      src={PLACEHOLDER_IMAGE} 
+      src={item.image || PLACEHOLDER_IMAGE} 
       alt={item.title}
       className="w-full h-40 object-cover"
       loading="lazy"
