@@ -1,20 +1,35 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Home, Camera } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import Ornament from './Ornament';
 import { menuSections } from '@/data/menuData';
 import { useActiveSection } from '@/hooks/useActiveSection';
 
-// Navigation items grouped for JugMug style
-const navItems = [
-  { id: 'appetizers', label: 'Snacks &\nStarters' },
-  { id: 'pizza', label: 'Pizza &\nPasta' },
-  { id: 'burgers', label: 'Burgers &\nSandwich' },
-  { id: 'mains', label: 'Mains &\nRice' },
-  { id: 'desserts', label: 'Desserts &\nDrinks' },
-  { id: 'coffee', label: 'Chai &\nCoffee' },
+const drinkSectionIds = ['coffee', 'hot-beverages', 'cold-coffee', 'iced-tea', 'coolers', 'premium-shakes', 'thick-shakes'];
+
+const mainNavItems = [
+  { id: 'appetizers', label: 'Appetizers' },
+  { id: 'pizza', label: 'Pizza' },
+  { id: 'pasta', label: 'Pasta' },
+  { id: 'chinese', label: 'Chinese' },
+  { id: 'burgers', label: 'Burgers' },
+  { id: 'sandwiches', label: 'Sandwiches' },
+  { id: 'mains', label: 'Mains' },
+  { id: 'desserts', label: 'Desserts' },
+];
+
+const drinkSubItems = [
+  { id: 'coffee', label: 'Coffee' },
+  { id: 'hot-beverages', label: 'Hot Beverages' },
+  { id: 'cold-coffee', label: 'Cold Coffee' },
+  { id: 'iced-tea', label: 'Iced Tea' },
+  { id: 'coolers', label: 'Coolers' },
+  { id: 'premium-shakes', label: 'Premium Shakes' },
+  { id: 'thick-shakes', label: 'Thick Shakes' },
 ];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDrinksOpen, setIsDrinksOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   
   const allSectionIds = menuSections.map(s => s.id);
@@ -34,97 +49,141 @@ const Header = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMenuOpen(false);
+    setIsDrinksOpen(false);
   };
+
+  const isActiveDrink = drinkSectionIds.includes(activeSection);
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'shadow-md' : ''
+      isScrolled ? 'bg-midnight-deep/95 backdrop-blur-sm py-3 shadow-lg' : 'bg-transparent py-6'
     }`}>
-      {/* Top bar with logo */}
-      <div className="bg-[#FFFBF2] relative py-4">
-        {/* Icon buttons */}
-        <div className="absolute top-4 left-4 right-4 flex justify-between pointer-events-none">
-          <button className="pointer-events-auto bg-[#E8E0C5] p-2 rounded-lg text-[#5C3019]">
-            <Home size={20} />
-          </button>
-          <button className="pointer-events-auto bg-[#E8E0C5] p-2 rounded-lg text-[#5C3019]">
-            <Camera size={20} />
-          </button>
-        </div>
-        
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Logo */}
-        <div className="text-center">
-          <h1 className="font-slab text-3xl md:text-4xl text-[#5C3019] uppercase tracking-wider leading-none">
-            Baari
-          </h1>
-          <span className="font-slab text-lg md:text-xl text-[#D2691E] uppercase tracking-wide">
-            Café
-          </span>
+        <div className="flex flex-col items-center mb-2">
+          <div className="flex items-center gap-4">
+            <Ornament className="text-gold rotate-180 hidden sm:block w-8" />
+            <h1 className="font-script text-3xl md:text-4xl lg:text-5xl text-gold tracking-wide">
+              Baari Café
+            </h1>
+            <Ornament className="text-gold hidden sm:block w-8" />
+          </div>
         </div>
-      </div>
 
-      {/* Navigation bar - Sage green */}
-      <div className="bg-[#C4D7C4] border-t-2 border-b-2 border-[#A8BFA8] overflow-x-auto scrollbar-hide">
-        <div className="flex whitespace-nowrap">
-          {navItems.map((item, index) => (
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex justify-center items-center gap-1 xl:gap-2 flex-wrap">
+          {mainNavItems.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`flex-1 min-w-[80px] font-slab text-[10px] md:text-xs text-center py-2 px-3 uppercase leading-tight transition-colors whitespace-pre-line ${
-                index < navItems.length - 1 ? 'border-r border-[#5C3019]/20' : ''
-              } ${
+              className={`font-serif text-xs xl:text-sm tracking-wider uppercase px-2 xl:px-3 py-1 transition-all duration-300 ${
                 activeSection === item.id
-                  ? 'text-[#5C3019] font-bold'
-                  : 'text-[#D2691E] hover:text-[#5C3019]'
+                  ? 'text-gold border-b-2 border-gold'
+                  : 'text-gold-light hover:text-gold'
               }`}
             >
               {item.label}
             </button>
           ))}
-        </div>
-      </div>
-
-      {/* Mobile Menu Button (for full menu access) */}
-      <button
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="lg:hidden fixed bottom-6 right-6 bg-[#5C3019] text-white p-4 rounded-full shadow-xl z-50"
-        aria-label="Toggle menu"
-      >
-        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
-
-      {/* Mobile Full Navigation */}
-      {isMenuOpen && (
-        <nav className="lg:hidden fixed inset-0 bg-[#FFFBF2]/98 backdrop-blur-sm z-40 animate-fade-in overflow-y-auto pt-32">
-          <div className="flex flex-col items-center px-6 pb-8">
+          
+          {/* Drinks Dropdown */}
+          <div className="relative">
             <button
-              onClick={() => setIsMenuOpen(false)}
-              className="absolute top-6 right-6 text-[#5C3019] p-2"
-              aria-label="Close menu"
+              onClick={() => setIsDrinksOpen(!isDrinksOpen)}
+              onMouseEnter={() => setIsDrinksOpen(true)}
+              className={`font-serif text-xs xl:text-sm tracking-wider uppercase px-2 xl:px-3 py-1 transition-all duration-300 flex items-center gap-1 ${
+                isActiveDrink
+                  ? 'text-gold border-b-2 border-gold'
+                  : 'text-gold-light hover:text-gold'
+              }`}
             >
-              <X size={28} />
+              Drinks
+              <ChevronDown size={14} className={`transition-transform ${isDrinksOpen ? 'rotate-180' : ''}`} />
             </button>
             
-            <h2 className="font-slab text-2xl text-[#5C3019] mb-6 uppercase">Full Menu</h2>
-            
-            <div className="grid grid-cols-2 gap-3 w-full max-w-sm">
-              {menuSections.map((section) => (
-                <button
-                  key={section.id}
-                  onClick={() => scrollToSection(section.id)}
-                  className={`font-slab text-xs tracking-wider uppercase py-3 px-4 rounded-lg border-2 transition-all ${
-                    activeSection === section.id
-                      ? 'text-[#5C3019] border-[#5C3019] bg-[#5C3019]/10'
-                      : 'text-[#D2691E] border-[#D2691E]/30 hover:border-[#D2691E]'
-                  }`}
-                >
-                  {section.title}
-                </button>
-              ))}
-            </div>
+            {isDrinksOpen && (
+              <div 
+                className="absolute top-full left-0 mt-2 bg-midnight-deep/95 backdrop-blur-sm border border-gold/20 rounded-lg py-2 min-w-[160px] shadow-xl"
+                onMouseLeave={() => setIsDrinksOpen(false)}
+              >
+                {drinkSubItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`block w-full text-left px-4 py-2 font-serif text-sm transition-colors ${
+                      activeSection === item.id
+                        ? 'text-gold bg-gold/10'
+                        : 'text-gold-light hover:text-gold hover:bg-gold/5'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </nav>
-      )}
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="lg:hidden absolute right-4 top-6 text-gold p-2"
+          aria-label="Toggle menu"
+        >
+          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <nav className="lg:hidden fixed inset-0 top-0 bg-midnight-deep/98 backdrop-blur-sm z-40 animate-fade-in overflow-y-auto">
+            <div className="flex flex-col items-center pt-24 pb-8 px-4">
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="absolute top-6 right-4 text-gold p-2"
+                aria-label="Close menu"
+              >
+                <X size={28} />
+              </button>
+              
+              <h2 className="font-script text-2xl text-gold mb-8">Menu</h2>
+              
+              <div className="grid grid-cols-2 gap-3 w-full max-w-sm">
+                {mainNavItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`font-serif text-sm tracking-wider uppercase py-3 px-4 rounded-lg border transition-all ${
+                      activeSection === item.id
+                        ? 'text-gold border-gold bg-gold/10'
+                        : 'text-gold-light border-gold/20 hover:border-gold/40'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+              
+              <h3 className="font-script text-xl text-gold mt-8 mb-4">Drinks</h3>
+              
+              <div className="grid grid-cols-2 gap-3 w-full max-w-sm">
+                {drinkSubItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`font-serif text-sm tracking-wider py-3 px-4 rounded-lg border transition-all ${
+                      activeSection === item.id
+                        ? 'text-gold border-gold bg-gold/10'
+                        : 'text-gold-light border-gold/20 hover:border-gold/40'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </nav>
+        )}
+      </div>
     </header>
   );
 };
