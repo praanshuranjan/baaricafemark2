@@ -31,7 +31,7 @@ const Index = () => {
         {/* Main Content */}
         <div className={`relative z-10 transition-opacity duration-700 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
           <Header />
-          <main className="pt-24">
+          <main className="pt-32 lg:pt-40 xl:pt-48">
             <HeroSection />
             <FullMenu />
           </main>
