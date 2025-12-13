@@ -24,7 +24,7 @@ const bannerSections = ['appetizers', 'desserts', 'pizza', 'pasta', 'chinese', '
 
 const FullMenu = () => {
   return (
-    <div className="bg-midnight py-12">
+    <div className="py-12">
       <div className="max-w-2xl mx-auto">
         {menuSections.map((section) => {
           const isDrinkCardSection = drinkCardSections.includes(section.id);
