@@ -30,10 +30,10 @@ export const menuSections: MenuSection[] = [
     footnote: 'Please note: 5% GST charged over the menu prices as per the government regulation',
     items: [
       { title: 'Baked Nachos', price: '₹275', dietType: 'veg', image: '/images/Baked nachos.jpeg' },
-      { title: 'Chicken Tikka', price: '₹346', dietType: 'non-veg', image: '/images/Chicken tikka.jpeg1.jpeg' },
+      { title: 'Chicken Tikka', price: '₹346', dietType: 'non-veg', image: '/menu2/chicken tikka.jpeg' },
       { title: 'Crispy Chicken Popcorn', price: '₹274', dietType: 'non-veg', image: '/images/Crispy Chicken popcorn.jpeg' },
       { title: 'Nachos with Salsa', price: '₹239', dietType: 'veg', image: '/images/Nachos with Salsa.jpeg' },
-      { title: 'Paneer Tikka', price: '₹323', dietType: 'veg', image: '/images/Paneer tikka.jpeg1.jpeg' },
+      { title: 'Paneer Tikka', price: '₹323', dietType: 'veg', image: '/menu2/Paneer tikka.jpeg' },
       { title: 'Drums of Heaven', price: '₹369', dietType: 'non-veg', description: 'Succulent chicken legs, crisped to perfection, and glazed with a sweet and tangy sauce. A delectable delight for your taste buds!', image: '/images/Drums of heaven.jpeg' },
       { title: 'Veg Platter', price: '₹719', dietType: 'veg', description: 'honey chilli potato, cheese veggie toast, hakka noodles, peri peri fries, nachos', image: '/images/Veg platter.png' },
       { title: 'Non Veg Platter', price: '₹839', dietType: 'non-veg', description: 'chicken toast, keema chicken fries, chicken nuggets, chicken noodles, chilli chicken', image: '/images/Non veg platter.png' },
@@ -175,8 +175,8 @@ export const menuSections: MenuSection[] = [
     title: 'Desserts',
     items: [
       { title: 'Sizzling Brownie', price: '₹239', dietType: 'egg', image: '/images/Sizzling brownie.png' },
-      { title: 'Donuts with Ice Cream', price: '₹263', dietType: 'egg', description: 'two shell donuts', image: '/images/Sizzling brownie.png' },
-      { title: 'Baked Cheesecake Slice', price: '₹275', dietType: 'egg', image: '/images/Chocolate truffle.png' },
+      { title: 'Donuts with Ice Cream', price: '₹263', dietType: 'egg', description: 'two shell donuts', image: '/menu2/donuts with ice cream.png' },
+      { title: 'Baked Cheesecake Slice', price: '₹275', dietType: 'egg', image: '/menu2/Baked cjeesecake.png' },
     ]
   },
   {
@@ -243,9 +243,9 @@ export const menuSections: MenuSection[] = [
     items: [
       { title: 'Espresso', price: '₹99', description: 'A strong and concentrated shot, perfect for the pure coffee connoisseur', image: '/images/Espresso.png' },
       { title: 'Cappuccino', price: '₹189', description: 'Rich espresso balanced with steamed milk and topped with velvety foam', image: '/images/cappuccino.png' },
-      { title: 'Latte', price: '₹199', description: 'Smooth espresso combined with creamy steamed milk, a classic indulgence', image: '/images/cappuccino.png' },
+      { title: 'Latte', price: '₹199', description: 'Smooth espresso combined with creamy steamed milk, a classic indulgence', image: '/menu2/Latte.png' },
       { title: 'Americano', price: '₹179', description: 'Diluted espresso for a milder flavor, perfect for sipping', image: '/images/Americano.png' },
-      { title: 'Mocha', price: '₹239', description: 'Espresso blended with decadent chocolate and topped with whipped cream', image: '/images/Coffee.png' },
+      { title: 'Mocha', price: '₹239', description: 'Espresso blended with decadent chocolate and topped with whipped cream', image: '/menu2/mocha.png' },
       { title: 'Flat White', price: '₹198', description: 'Espresso with velvety microfoam, delivering a strong yet creamy experience', image: '/images/Flat white.png' },
       { title: 'Coffee (Homemade Hand-Beaten)', price: '₹143', image: '/images/Coffee.png' },
     ]
