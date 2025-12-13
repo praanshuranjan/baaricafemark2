@@ -41,12 +41,6 @@ const CurtainIntro = ({ onComplete }: CurtainIntroProps) => {
     };
   }, [onComplete]);
 
-  const handleSkip = () => {
-    setPhase('complete');
-    sessionStorage.setItem('baari-intro-seen', 'true');
-    onComplete();
-  };
-
   if (phase === 'complete') return null;
 
   return (
@@ -105,13 +99,6 @@ const CurtainIntro = ({ onComplete }: CurtainIntroProps) => {
         </div>
       </div>
 
-      {/* Skip Button */}
-      <button
-        onClick={handleSkip}
-        className="fixed bottom-8 right-8 z-[102] px-4 py-2 text-sm text-gold/60 hover:text-gold border border-gold/30 hover:border-gold/60 rounded-full transition-all duration-300 bg-midnight/50 backdrop-blur-sm"
-      >
-        Skip
-      </button>
     </div>
   );
 };

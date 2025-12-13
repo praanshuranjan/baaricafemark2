@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { ListOrdered } from 'lucide-react';
 import Ornament from './Ornament';
 import { menuSections } from '@/data/menuData';
 import { useActiveSection } from '@/hooks/useActiveSection';
@@ -55,11 +54,11 @@ const Header = () => {
       <Popover open={isOpen} onOpenChange={setIsOpen}>
         <PopoverTrigger asChild>
           <button
-            className="fixed bottom-6 right-6 z-50 flex flex-col items-center justify-center bg-[#1a1a1a] rounded-full w-14 h-14 shadow-xl border border-zinc-700 transition-all duration-300 hover:scale-105"
+            className="fixed bottom-6 right-6 z-50 flex flex-col items-center justify-center bg-midnight-deep rounded-full w-14 h-14 shadow-xl border-2 border-gold transition-all duration-300 hover:scale-105"
             aria-label="Open menu"
           >
-            <ListOrdered size={20} className="text-white" strokeWidth={1.5} />
-            <span className="text-[8px] text-white mt-0.5 uppercase tracking-wider font-medium">Menu</span>
+            <img src="/images/menu.png" alt="Menu" className="w-6 h-6" />
+            <span className="text-[8px] text-gold mt-0.5 uppercase tracking-wider font-medium">Menu</span>
           </button>
         </PopoverTrigger>
         
