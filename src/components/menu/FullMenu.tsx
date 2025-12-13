@@ -11,16 +11,16 @@ import {
 } from './MenuComponents';
 
 // Sections that should use drink cards (with images, 2-col grid)
-const drinkCardSections = ['iced-tea', 'premium-shakes', 'thick-shakes'];
+const drinkCardSections = ['iced-tea', 'premium-shakes', 'thick-shakes', 'coolers', 'coffee', 'hot-beverages', 'cold-coffee'];
 
 // Sections that should use list cards (compact, no images)
-const listCardSections = ['coolers', 'coffee', 'hot-beverages', 'cold-coffee'];
+const listCardSections = [];
 
-// Sections that have platters (full width cards)
-const platterTitles = ['Veg Platter', 'Non Veg Platter', 'Continental Platter Veg', 'Continental Platter Non Veg', 'Non Veg Hummus Platter', 'Veg Hummus Platter'];
+// Sections that have platters (use FoodCard in grid like others)
+const platterTitles = [];
 
 // Sections that get banner headers (warm chocolate background)
-const bannerSections = ['appetizers', 'desserts'];
+const bannerSections = ['appetizers', 'desserts', 'pizza', 'pasta', 'chinese', 'rice', 'burgers', 'sandwiches', 'sides', 'fries', 'salads', 'mains', 'iced-tea', 'cakes', 'coolers', 'premium-shakes', 'thick-shakes', 'coffee', 'hot-beverages', 'cold-coffee'];
 
 const FullMenu = () => {
   return (
@@ -37,12 +37,8 @@ const FullMenu = () => {
               id={section.id}
               className="mb-12 scroll-mt-32"
             >
-              {/* Header - Banner style or elegant gold */}
-              {isBannerSection ? (
-                <BannerHeader title={section.title} subtitle={section.subtitle} />
-              ) : (
-                <SectionHeader title={section.title} subtitle={section.subtitle} />
-              )}
+              {/* Header - Banner style for all sections */}
+              <BannerHeader title={section.title} subtitle={section.subtitle} />
               
               {/* Cards Grid */}
               {isListCardSection ? (
@@ -56,14 +52,8 @@ const FullMenu = () => {
                 // Grid layout for food/drinks with images
                 <div className="grid grid-cols-2 gap-4 px-4">
                   {section.items.map((item) => {
-                    const isPlatter = platterTitles.includes(item.title);
-                    
                     if (isDrinkCardSection) {
                       return <DrinkCard key={item.title} item={item} />;
-                    }
-                    
-                    if (isPlatter) {
-                      return <FullWidthCard key={item.title} item={item} />;
                     }
                     
                     return <FoodCard key={item.title} item={item} />;

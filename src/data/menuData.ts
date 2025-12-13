@@ -29,17 +29,17 @@ export const menuSections: MenuSection[] = [
     title: 'Appetizers & Platters',
     footnote: 'Please note: 5% GST charged over the menu prices as per the government regulation',
     items: [
-      { title: 'Baked Nachos', price: '₹275', dietType: 'veg' },
+      { title: 'Baked Nachos', price: '₹275', dietType: 'veg', image: '/images/Baked nachos.jpeg' },
       { title: 'Chicken Tikka', price: '₹346', dietType: 'non-veg', image: '/images/Chicken tikka.jpeg1.jpeg' },
-      { title: 'Crispy Chicken Popcorn', price: '₹274', dietType: 'non-veg' },
-      { title: 'Nachos with Salsa', price: '₹239', dietType: 'veg' },
+      { title: 'Crispy Chicken Popcorn', price: '₹274', dietType: 'non-veg', image: '/images/Crispy Chicken popcorn.jpeg' },
+      { title: 'Nachos with Salsa', price: '₹239', dietType: 'veg', image: '/images/Nachos with Salsa.jpeg' },
       { title: 'Paneer Tikka', price: '₹323', dietType: 'veg', image: '/images/Paneer tikka.jpeg1.jpeg' },
-      { title: 'Drums of Heaven', price: '₹369', dietType: 'non-veg', description: 'Succulent chicken legs, crisped to perfection, and glazed with a sweet and tangy sauce. A delectable delight for your taste buds!' },
-      { title: 'Veg Platter', price: '₹719', dietType: 'veg', smallText: 'honey chilli potato, cheese veggie toast, hakka noodles, peri peri fries, nachos' },
-      { title: 'Non Veg Platter', price: '₹839', dietType: 'non-veg', smallText: 'chicken toast, keema chicken fries, chicken nuggets, chicken noodles, chilli chicken' },
-      { title: 'Continental Platter Veg', price: '₹959', dietType: 'veg', smallText: 'any pasta, very veggie pizza (three slices), cheesy garlic sandwich, peri peri fries, garlic toast' },
-      { title: 'Continental Platter Non Veg', price: '₹1079', dietType: 'non-veg', smallText: 'any chicken pasta, chicken tikka pizza (three slices), cheesy chicken sandwich, keema fries, chicken toast' },
-      { title: 'Non Veg Hummus Platter', price: '₹549', dietType: 'non-veg', description: 'Delight in our exquisite Hummus Platter, a symphony of flavors featuring creamy hummus, warm pita bread, seasoned chickpeas, and zesty peri peri fries', image: '/images/Veg hummus platter.png' },
+      { title: 'Drums of Heaven', price: '₹369', dietType: 'non-veg', description: 'Succulent chicken legs, crisped to perfection, and glazed with a sweet and tangy sauce. A delectable delight for your taste buds!', image: '/images/Drums of heaven.jpeg' },
+      { title: 'Veg Platter', price: '₹719', dietType: 'veg', smallText: 'honey chilli potato, cheese veggie toast, hakka noodles, peri peri fries, nachos', image: '/images/Veg platter.png' },
+      { title: 'Non Veg Platter', price: '₹839', dietType: 'non-veg', smallText: 'chicken toast, keema chicken fries, chicken nuggets, chicken noodles, chilli chicken', image: '/images/Non veg platter.png' },
+      { title: 'Continental Platter Veg', price: '₹959', dietType: 'veg', smallText: 'any pasta, very veggie pizza (three slices), cheesy garlic sandwich, peri peri fries, garlic toast', image: '/images/Continental veg platter.png' },
+      { title: 'Continental Platter Non Veg', price: '₹1079', dietType: 'non-veg', smallText: 'any chicken pasta, chicken tikka pizza (three slices), cheesy chicken sandwich, keema fries, chicken toast', image: '/images/Continental non veg platter.png' },
+      { title: 'Non Veg Hummus Platter', price: '₹549', dietType: 'non-veg', description: 'Delight in our exquisite Hummus Platter, a symphony of flavors featuring creamy hummus, warm pita bread, seasoned chickpeas, and zesty peri peri fries', image: '/images/Non veg hummus platter.png' },
       { title: 'Veg Hummus Platter', price: '₹499', dietType: 'veg', description: 'Grilled paneer, zesty peri peri fries, velvety hummus, and warm pita. A symphony of flavors in every bite!', image: '/images/Veg hummus platter.png' },
     ]
   },
@@ -61,7 +61,7 @@ export const menuSections: MenuSection[] = [
       { title: 'Peri Peri Paneer', price: '₹467', dietType: 'veg', description: 'onion, bell pepper, cottage cheese, peri peri sauce', image: '/images/peri peri paneer.jpeg' },
       { title: 'Peri Peri Chicken', price: '₹479', dietType: 'non-veg', description: 'fresh chicken, peri peri sauce, bell pepper', image: '/images/Peri peri chicken.jpeg' },
       { title: 'Very Veggie', price: '₹359/₹431', dietType: 'veg', description: 'corn, olive, bell pepper, mushroom, zucchini, broccoli', image: '/images/Very veggie 359.jpeg' },
-      { title: 'Make My Pizza (Half n Half)', price: '₹503', description: 'Combine any 2 of our delicious pizzas in 1' },
+      { title: 'Make My Pizza (Half n Half)', price: '₹503', description: 'Combine any 2 of our delicious pizzas in 1', image: '/images/Very veggie 359.jpeg' },
     ]
   },
   {
@@ -89,18 +89,18 @@ export const menuSections: MenuSection[] = [
       { title: 'Honey Chilli Potato', price: '₹323', dietType: 'veg', image: '/images/Honey chilli potato.jpeg' },
       { title: 'Hakka Noodles', price: '₹311', dietType: 'veg', image: '/images/Hakka noddles.jpeg' },
       { title: 'Chicken Hakka Noodles', price: '₹335', dietType: 'non-veg', image: '/images/Chicken hakka noddles.jpeg' },
-      { title: 'Chilli Chicken (Dry/Gravy)', price: '₹383', dietType: 'non-veg' },
-      { title: 'Chilli Potato', price: '₹287', dietType: 'veg' },
-      { title: 'Chilli Garlic Noodles', price: '₹323', dietType: 'veg' },
-      { title: 'Chilli Garlic Noodles with Chicken', price: '₹359', dietType: 'non-veg' },
+      { title: 'Chilli Chicken (Dry/Gravy)', price: '₹383', dietType: 'non-veg', image: '/images/Chilli chicken.png' },
+      { title: 'Chilli Potato', price: '₹287', dietType: 'veg', image: '/images/Chilli potato.jpeg' },
+      { title: 'Chilli Garlic Noodles', price: '₹323', dietType: 'veg', image: '/images/Chilli garlic noddles.jpeg' },
+      { title: 'Chilli Garlic Noodles with Chicken', price: '₹359', dietType: 'non-veg', image: '/images/Chilli garlic chicken noddles.jpeg' },
     ]
   },
   {
     id: 'rice',
     title: 'Rice',
     items: [
-      { title: 'Vegetable Fried Rice', price: '₹299', dietType: 'veg', description: 'Aromatic basmati rice stir-fried with colorful veggies, seasoned with Indian spices for a flavorful vegetarian delight' },
-      { title: 'Chicken Fried Rice', price: '₹369', dietType: 'non-veg', description: 'Tender chicken chunks paired with fragrant basmati rice and a medley of vegetables, spiced with Indian flavors for a hearty option' },
+      { title: 'Vegetable Fried Rice', price: '₹299', dietType: 'veg', description: 'Aromatic basmati rice stir-fried with colorful veggies, seasoned with Indian spices for a flavorful vegetarian delight', image: '/images/Vegetable froed rice.jpeg' },
+      { title: 'Chicken Fried Rice', price: '₹369', dietType: 'non-veg', description: 'Tender chicken chunks paired with fragrant basmati rice and a medley of vegetables, spiced with Indian flavors for a hearty option', image: '/images/Chicken fried rice.jpeg' },
       { title: 'Egg Fried Rice', price: '₹319', dietType: 'egg', description: 'Classic combination of fluffy basmati rice and scrambled eggs, tossed with vegetables and Indian spices for a simple yet delicious dish', image: '/images/Egg fried rice.jpeg' },
       { title: 'Paneer Fried Rice', price: '₹369', dietType: 'veg', description: 'Soft paneer cubes mixed with aromatic basmati rice and vibrant veggies, elevated with the infusion of Indian spices', image: '/images/Paneer fried rice.jpeg' },
       { title: 'Schezwan Chicken', price: '₹399', dietType: 'non-veg', description: 'basmati rice, infused with our fiery Schezwan sauce for a flavorful kick', image: '/images/Schezwan chicken rice.png' },
@@ -150,7 +150,7 @@ export const menuSections: MenuSection[] = [
       { title: 'Cheese Fries', price: '₹299', dietType: 'veg', description: 'One combination that screams yummm! fries topped with cheese, parsley', image: '/images/Cheese fries.jpeg' },
       { title: 'Peri Peri Cheese Fries', price: '₹311', dietType: 'veg', description: 'Cheese fries topped with peri peri masala', image: '/images/Peri peri cheese fries.jpeg' },
       { title: 'Fireball Fries with Keema Chicken', price: '₹299', dietType: 'non-veg', description: 'Minced chicken with fire-y homemade sauce to elevate the taste', smallText: 'Baari Special', image: '/images/Fireball fries with keema chicken.jpeg' },
-      { title: 'Garlic Butter Fries', price: '₹239', dietType: 'veg', description: 'Fries topped with our homemade garlic butter that satiates our soul', image: '/images/Garlic butter fries.jpeg' },
+      { title: 'Garlic Butter Fries', price: '₹239', dietType: 'veg', description: 'Fries topped with our homemade garlic butter that satiates our soul', image: '/images/Garlic butter fries.png' },
       { title: 'Classic Fries', price: '₹215', dietType: 'veg', description: 'Only salt, no pepper', image: '/images/Classic fries.jpeg' },
     ]
   },
@@ -175,8 +175,8 @@ export const menuSections: MenuSection[] = [
     title: 'Desserts',
     items: [
       { title: 'Sizzling Brownie', price: '₹239', dietType: 'egg', image: '/images/Sizzling brownie.png' },
-      { title: 'Donuts with Ice Cream', price: '₹263', dietType: 'egg', description: 'two shell donuts' },
-      { title: 'Baked Cheesecake Slice', price: '₹275', dietType: 'egg' },
+      { title: 'Donuts with Ice Cream', price: '₹263', dietType: 'egg', description: 'two shell donuts', image: '/images/Sizzling brownie.png' },
+      { title: 'Baked Cheesecake Slice', price: '₹275', dietType: 'egg', image: '/images/Chocolate truffle.png' },
     ]
   },
   {
@@ -210,8 +210,8 @@ export const menuSections: MenuSection[] = [
       { title: 'Hurricane', price: '₹263', image: '/images/Hurricane.png' },
       { title: 'Sunset', price: '₹263', image: '/images/Sunset.jpeg' },
       { title: 'Fresh Lime Soda', price: '₹203', description: 'Salty/mix/sweet', image: '/images/Fresh Lime Soda.jpeg' },
-      { title: 'Coke', price: '₹120' },
-      { title: 'Mineral Water', price: '₹60' },
+      { title: 'Coke', price: '₹120', image: '/images/Virgin mojito.jpeg' },
+      { title: 'Mineral Water', price: '₹60', image: '/images/Fresh Lime Soda.jpeg' },
     ]
   },
   {
@@ -241,11 +241,11 @@ export const menuSections: MenuSection[] = [
     title: 'Coffee',
     addOns: [{ name: 'Add Caramel/Hazelnut', price: '₹29' }],
     items: [
-      { title: 'Espresso', price: '₹99', description: 'A strong and concentrated shot, perfect for the pure coffee connoisseur' },
+      { title: 'Espresso', price: '₹99', description: 'A strong and concentrated shot, perfect for the pure coffee connoisseur', image: '/images/Espresso.png' },
       { title: 'Cappuccino', price: '₹189', description: 'Rich espresso balanced with steamed milk and topped with velvety foam', image: '/images/cappuccino.png' },
-      { title: 'Latte', price: '₹199', description: 'Smooth espresso combined with creamy steamed milk, a classic indulgence' },
+      { title: 'Latte', price: '₹199', description: 'Smooth espresso combined with creamy steamed milk, a classic indulgence', image: '/images/cappuccino.png' },
       { title: 'Americano', price: '₹179', description: 'Diluted espresso for a milder flavor, perfect for sipping', image: '/images/Americano.png' },
-      { title: 'Mocha', price: '₹239', description: 'Espresso blended with decadent chocolate and topped with whipped cream' },
+      { title: 'Mocha', price: '₹239', description: 'Espresso blended with decadent chocolate and topped with whipped cream', image: '/images/Coffee.png' },
       { title: 'Flat White', price: '₹198', description: 'Espresso with velvety microfoam, delivering a strong yet creamy experience', image: '/images/Flat white.png' },
       { title: 'Coffee (Homemade Hand-Beaten)', price: '₹143', image: '/images/Coffee.png' },
     ]
