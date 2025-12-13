@@ -1,36 +1,19 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import Ornament from './Ornament';
 import { menuSections } from '@/data/menuData';
 import { useActiveSection } from '@/hooks/useActiveSection';
-
-const drinkSectionIds = ['coffee', 'hot-beverages', 'cold-coffee', 'iced-tea', 'coolers', 'premium-shakes', 'thick-shakes'];
-
-const mainNavItems = [
-  { id: 'appetizers', label: 'Appetizers' },
-  { id: 'pizza', label: 'Pizza' },
-  { id: 'pasta', label: 'Pasta' },
-  { id: 'chinese', label: 'Chinese' },
-  { id: 'burgers', label: 'Burgers' },
-  { id: 'sandwiches', label: 'Sandwiches' },
-  { id: 'mains', label: 'Mains' },
-  { id: 'desserts', label: 'Desserts' },
-];
-
-const drinkSubItems = [
-  { id: 'coffee', label: 'Coffee' },
-  { id: 'hot-beverages', label: 'Hot Beverages' },
-  { id: 'cold-coffee', label: 'Cold Coffee' },
-  { id: 'iced-tea', label: 'Iced Tea' },
-  { id: 'coolers', label: 'Coolers' },
-  { id: 'premium-shakes', label: 'Premium Shakes' },
-  { id: 'thick-shakes', label: 'Thick Shakes' },
-];
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDrinksOpen, setIsDrinksOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   
   const allSectionIds = menuSections.map(s => s.id);
   const activeSection = useActiveSection(allSectionIds);
@@ -48,143 +31,75 @@ const Header = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-    setIsMenuOpen(false);
-    setIsDrinksOpen(false);
+    setIsOpen(false);
   };
 
-  const isActiveDrink = drinkSectionIds.includes(activeSection);
-
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-midnight-deep/95 backdrop-blur-sm py-3 shadow-lg' : 'bg-transparent py-6'
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        {/* Logo */}
-        <div className="flex flex-col items-center mb-2">
-          <div className="flex items-center gap-4">
-            <Ornament className="text-gold rotate-180 hidden sm:block w-8" />
-            <h1 className="font-script text-3xl md:text-4xl lg:text-5xl text-gold tracking-wide">
-              Baari Café
-            </h1>
-            <Ornament className="text-gold hidden sm:block w-8" />
+    <>
+      {/* Header with Logo */}
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-midnight-deep/95 backdrop-blur-sm py-3 shadow-lg' : 'bg-transparent py-6'
+      }`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="flex flex-col items-center">
+            <div className="flex items-center gap-4">
+              <Ornament className="text-gold rotate-180 hidden sm:block w-8" />
+              <h1 className="font-script text-3xl md:text-4xl lg:text-5xl text-gold tracking-wide">
+                Baari Café
+              </h1>
+              <Ornament className="text-gold hidden sm:block w-8" />
+            </div>
           </div>
         </div>
+      </header>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex justify-center items-center gap-1 xl:gap-2 flex-wrap">
-          {mainNavItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className={`font-serif text-xs xl:text-sm tracking-wider uppercase px-2 xl:px-3 py-1 transition-all duration-300 ${
-                activeSection === item.id
-                  ? 'text-gold border-b-2 border-gold'
-                  : 'text-gold-light hover:text-gold'
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
-          
-          {/* Drinks Dropdown */}
-          <div className="relative">
-            <button
-              onClick={() => setIsDrinksOpen(!isDrinksOpen)}
-              onMouseEnter={() => setIsDrinksOpen(true)}
-              className={`font-serif text-xs xl:text-sm tracking-wider uppercase px-2 xl:px-3 py-1 transition-all duration-300 flex items-center gap-1 ${
-                isActiveDrink
-                  ? 'text-gold border-b-2 border-gold'
-                  : 'text-gold-light hover:text-gold'
-              }`}
-            >
-              Drinks
-              <ChevronDown size={14} className={`transition-transform ${isDrinksOpen ? 'rotate-180' : ''}`} />
-            </button>
-            
-            {isDrinksOpen && (
-              <div 
-                className="absolute top-full left-0 mt-2 bg-midnight-deep/95 backdrop-blur-sm border border-gold/20 rounded-lg py-2 min-w-[160px] shadow-xl"
-                onMouseLeave={() => setIsDrinksOpen(false)}
-              >
-                {drinkSubItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`block w-full text-left px-4 py-2 font-serif text-sm transition-colors ${
-                      activeSection === item.id
-                        ? 'text-gold bg-gold/10'
-                        : 'text-gold-light hover:text-gold hover:bg-gold/5'
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden absolute right-4 top-6 text-gold p-2"
-          aria-label="Toggle menu"
+      {/* Floating Menu Button */}
+      <Sheet open={isOpen} onOpenChange={setIsOpen}>
+        <SheetTrigger asChild>
+          <button
+            className="fixed bottom-6 right-6 z-50 flex flex-col items-center justify-center bg-black/90 backdrop-blur-sm rounded-full w-16 h-16 shadow-xl border border-gold/30 transition-all duration-300 hover:scale-105 hover:border-gold/50"
+            aria-label="Open menu"
+          >
+            <Menu size={22} className="text-gold" />
+            <span className="text-[10px] font-serif text-gold mt-0.5 uppercase tracking-wider">Menu</span>
+          </button>
+        </SheetTrigger>
+        
+        <SheetContent 
+          side="bottom" 
+          className="bg-midnight-deep/98 backdrop-blur-md border-t border-gold/20 rounded-t-3xl max-h-[70vh] overflow-hidden"
         >
-          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="lg:hidden fixed inset-0 top-0 bg-midnight-deep/98 backdrop-blur-sm z-40 animate-fade-in overflow-y-auto">
-            <div className="flex flex-col items-center pt-24 pb-8 px-4">
-              <button
-                onClick={() => setIsMenuOpen(false)}
-                className="absolute top-6 right-4 text-gold p-2"
-                aria-label="Close menu"
-              >
-                <X size={28} />
-              </button>
-              
-              <h2 className="font-script text-2xl text-gold mb-8">Menu</h2>
-              
-              <div className="grid grid-cols-2 gap-3 w-full max-w-sm">
-                {mainNavItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`font-serif text-sm tracking-wider uppercase py-3 px-4 rounded-lg border transition-all ${
-                      activeSection === item.id
-                        ? 'text-gold border-gold bg-gold/10'
-                        : 'text-gold-light border-gold/20 hover:border-gold/40'
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </div>
-              
-              <h3 className="font-script text-xl text-gold mt-8 mb-4">Drinks</h3>
-              
-              <div className="grid grid-cols-2 gap-3 w-full max-w-sm">
-                {drinkSubItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`font-serif text-sm tracking-wider py-3 px-4 rounded-lg border transition-all ${
-                      activeSection === item.id
-                        ? 'text-gold border-gold bg-gold/10'
-                        : 'text-gold-light border-gold/20 hover:border-gold/40'
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </div>
+          <SheetHeader className="pb-4 border-b border-gold/10">
+            <SheetTitle className="font-script text-2xl text-gold text-center">
+              Browse Menu
+            </SheetTitle>
+          </SheetHeader>
+          
+          <div className="overflow-y-auto max-h-[calc(70vh-100px)] py-4 px-2">
+            <div className="space-y-1">
+              {menuSections.map((section) => (
+                <button
+                  key={section.id}
+                  onClick={() => scrollToSection(section.id)}
+                  className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 ${
+                    activeSection === section.id
+                      ? 'bg-gold/15 text-gold'
+                      : 'text-cream hover:bg-gold/5 hover:text-gold'
+                  }`}
+                >
+                  <span className="font-serif text-base tracking-wide">{section.title}</span>
+                  <span className={`text-sm ${
+                    activeSection === section.id ? 'text-gold/80' : 'text-cream/50'
+                  }`}>
+                    {section.items.length} items
+                  </span>
+                </button>
+              ))}
             </div>
-          </nav>
-        )}
-      </div>
-    </header>
+          </div>
+        </SheetContent>
+      </Sheet>
+    </>
   );
 };
 
