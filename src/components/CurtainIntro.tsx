@@ -7,7 +7,7 @@ interface CurtainIntroProps {
 }
 
 const CurtainIntro = ({ onComplete }: CurtainIntroProps) => {
-  const [phase, setPhase] = useState<'initial' | 'revealing' | 'transitioning' | 'complete'>('initial');
+  const [phase, setPhase] = useState<'initial' | 'revealing' | 'complete'>('initial');
 
   useEffect(() => {
     // Check if user has seen intro before
@@ -17,26 +17,20 @@ const CurtainIntro = ({ onComplete }: CurtainIntroProps) => {
       return;
     }
 
-    // Phase 1: Show logo with glow (0-1.5s)
+    // Phase 1: Show logo with glow (0-1s)
     const revealTimer = setTimeout(() => {
       setPhase('revealing');
-    }, 1500);
+    }, 1000);
 
-    // Phase 2: Curtains lift (1.5-3s)
-    const transitionTimer = setTimeout(() => {
-      setPhase('transitioning');
-    }, 3000);
-
-    // Phase 3: Logo moves to header (3-4.5s)
+    // Phase 2: Complete after curtains lift (2.5s total)
     const completeTimer = setTimeout(() => {
       setPhase('complete');
       sessionStorage.setItem('baari-intro-seen', 'true');
       onComplete();
-    }, 4500);
+    }, 2500);
 
     return () => {
       clearTimeout(revealTimer);
-      clearTimeout(transitionTimer);
       clearTimeout(completeTimer);
     };
   }, [onComplete]);
@@ -53,7 +47,7 @@ const CurtainIntro = ({ onComplete }: CurtainIntroProps) => {
       {/* Top Curtain */}
       <div
         className={`absolute inset-x-0 top-0 h-1/2 curtain-texture transition-transform duration-1000 ease-in-out ${
-          phase === 'revealing' || phase === 'transitioning' ? 'curtain-lift-up' : ''
+          phase === 'revealing' ? 'curtain-lift-up' : ''
         }`}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-midnight via-midnight to-midnight/95" />
@@ -64,7 +58,7 @@ const CurtainIntro = ({ onComplete }: CurtainIntroProps) => {
       {/* Bottom Curtain */}
       <div
         className={`absolute inset-x-0 bottom-0 h-1/2 curtain-texture transition-transform duration-1000 ease-in-out ${
-          phase === 'revealing' || phase === 'transitioning' ? 'curtain-lift-down' : ''
+          phase === 'revealing' ? 'curtain-lift-down' : ''
         }`}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight to-midnight/95" />
@@ -75,27 +69,19 @@ const CurtainIntro = ({ onComplete }: CurtainIntroProps) => {
       {/* Centered Logo */}
       <div
         className={`fixed z-[101] flex flex-col items-center justify-center pointer-events-none ${
-          phase === 'transitioning' ? 'logo-to-header' : 'logo-centered'
+          phase === 'initial' ? 'logo-centered' : 'logo-centered'
         }`}
       >
         <div className="flex items-center gap-3 md:gap-4">
-          <Ornament className={`w-8 h-8 md:w-12 md:h-12 text-gold transition-all duration-500 ${
-            phase === 'transitioning' ? 'scale-50 opacity-80' : ''
-          }`} />
+          <Ornament className={`w-8 h-8 md:w-12 md:h-12 text-gold transition-all duration-500`} />
           <h1
             className={`font-script tracking-wide text-gold transition-all duration-500 ${
-              phase === 'initial' ? 'text-5xl md:text-7xl lg:text-8xl animate-text-glow' : ''
-            } ${
-              phase === 'revealing' ? 'text-5xl md:text-7xl lg:text-8xl' : ''
-            } ${
-              phase === 'transitioning' ? 'text-2xl md:text-3xl' : ''
+              phase === 'initial' ? 'text-5xl md:text-7xl lg:text-8xl animate-text-glow' : 'text-5xl md:text-7xl lg:text-8xl'
             }`}
           >
             Baari Café
           </h1>
-          <Ornament className={`w-8 h-8 md:w-12 md:h-12 text-gold rotate-180 transition-all duration-500 ${
-            phase === 'transitioning' ? 'scale-50 opacity-80' : ''
-          }`} />
+          <Ornament className={`w-8 h-8 md:w-12 md:h-12 text-gold rotate-180 transition-all duration-500`} />
         </div>
       </div>
 
