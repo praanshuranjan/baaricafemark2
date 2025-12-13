@@ -66,7 +66,7 @@ const Header = () => {
           side="top" 
           align="end"
           sideOffset={12}
-          className="w-56 p-0 bg-white rounded-2xl shadow-2xl border-0 overflow-hidden"
+          className="w-56 p-0 bg-midnight-deep rounded-2xl shadow-2xl border-2 border-gold overflow-hidden"
         >
           <div className="max-h-[50vh] overflow-y-auto">
             {menuSections.map((section, index) => (
@@ -75,9 +75,9 @@ const Header = () => {
                 onClick={() => scrollToSection(section.id)}
                 className={`w-full flex items-center justify-between px-4 py-3 transition-all duration-150 ${
                   activeSection === section.id
-                    ? 'bg-gray-100 text-gray-900'
-                    : 'text-gray-700 hover:bg-gray-50'
-                } ${index !== menuSections.length - 1 ? 'border-b border-gray-100' : ''}`}
+                    ? 'bg-gold/20 text-gold'
+                    : 'text-gold/80 hover:bg-gold/10 hover:text-gold'
+                } ${index !== menuSections.length - 1 ? 'border-b border-gold/20' : ''}`}
               >
                 <span className="text-sm font-normal">{section.title}</span>
               </button>
