@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Menu } from 'lucide-react';
+import { ListOrdered } from 'lucide-react';
 import Ornament from './Ornament';
 import { menuSections } from '@/data/menuData';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/ui/sheet';
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -53,52 +51,44 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Floating Menu Button */}
-      <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <SheetTrigger asChild>
+      {/* Floating Menu Button with Popover */}
+      <Popover open={isOpen} onOpenChange={setIsOpen}>
+        <PopoverTrigger asChild>
           <button
-            className="fixed bottom-6 right-6 z-50 flex flex-col items-center justify-center bg-black/90 backdrop-blur-sm rounded-full w-16 h-16 shadow-xl border border-gold/30 transition-all duration-300 hover:scale-105 hover:border-gold/50"
+            className="fixed bottom-6 right-6 z-50 flex flex-col items-center justify-center bg-[#1a1a1a] rounded-full w-14 h-14 shadow-xl border border-zinc-700 transition-all duration-300 hover:scale-105"
             aria-label="Open menu"
           >
-            <Menu size={22} className="text-gold" />
-            <span className="text-[10px] font-serif text-gold mt-0.5 uppercase tracking-wider">Menu</span>
+            <ListOrdered size={20} className="text-white" strokeWidth={1.5} />
+            <span className="text-[8px] text-white mt-0.5 uppercase tracking-wider font-medium">Menu</span>
           </button>
-        </SheetTrigger>
+        </PopoverTrigger>
         
-        <SheetContent 
-          side="bottom" 
-          className="bg-midnight-deep/98 backdrop-blur-md border-t border-gold/20 rounded-t-3xl max-h-[70vh] overflow-hidden"
+        <PopoverContent 
+          side="top" 
+          align="end"
+          sideOffset={12}
+          className="w-56 p-0 bg-white rounded-2xl shadow-2xl border-0 overflow-hidden"
         >
-          <SheetHeader className="pb-4 border-b border-gold/10">
-            <SheetTitle className="font-script text-2xl text-gold text-center">
-              Browse Menu
-            </SheetTitle>
-          </SheetHeader>
-          
-          <div className="overflow-y-auto max-h-[calc(70vh-100px)] py-4 px-2">
-            <div className="space-y-1">
-              {menuSections.map((section) => (
-                <button
-                  key={section.id}
-                  onClick={() => scrollToSection(section.id)}
-                  className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-200 ${
-                    activeSection === section.id
-                      ? 'bg-gold/15 text-gold'
-                      : 'text-cream hover:bg-gold/5 hover:text-gold'
-                  }`}
-                >
-                  <span className="font-serif text-base tracking-wide">{section.title}</span>
-                  <span className={`text-sm ${
-                    activeSection === section.id ? 'text-gold/80' : 'text-cream/50'
-                  }`}>
-                    {section.items.length} items
-                  </span>
-                </button>
-              ))}
-            </div>
+          <div className="max-h-[50vh] overflow-y-auto">
+            {menuSections.map((section, index) => (
+              <button
+                key={section.id}
+                onClick={() => scrollToSection(section.id)}
+                className={`w-full flex items-center justify-between px-4 py-3 transition-all duration-150 ${
+                  activeSection === section.id
+                    ? 'bg-gray-100 text-gray-900'
+                    : 'text-gray-700 hover:bg-gray-50'
+                } ${index !== menuSections.length - 1 ? 'border-b border-gray-100' : ''}`}
+              >
+                <span className="text-sm font-normal">{section.title}</span>
+                <span className="text-sm text-gray-400">
+                  {section.items.length}
+                </span>
+              </button>
+            ))}
           </div>
-        </SheetContent>
-      </Sheet>
+        </PopoverContent>
+      </Popover>
     </>
   );
 };
