@@ -1,9 +1,7 @@
 import { Facebook, Twitter, Instagram } from 'lucide-react';
 import Ornament from './Ornament';
-
 const Footer = () => {
-  return (
-    <footer className="relative footer-gradient py-12 px-4 md:px-8">
+  return <footer className="relative footer-gradient py-12 px-4 md:px-8">
       {/* Gold gradient border at top */}
       <div className="absolute top-0 left-0 right-0 h-px gold-gradient-border" />
       
@@ -22,27 +20,13 @@ const Footer = () => {
 
         {/* Social Icons */}
         <div className="flex justify-center gap-6 mb-8">
-          <a 
-            href="#" 
-            className="text-gold-light hover:text-gold transition-colors duration-300"
-            aria-label="Facebook"
-          >
+          <a href="#" className="text-gold-light hover:text-gold transition-colors duration-300" aria-label="Facebook">
             <Facebook size={20} />
           </a>
-          <a 
-            href="#" 
-            className="text-gold-light hover:text-gold transition-colors duration-300"
-            aria-label="Twitter"
-          >
+          <a href="#" className="text-gold-light hover:text-gold transition-colors duration-300" aria-label="Twitter">
             <Twitter size={20} />
           </a>
-          <a 
-            href="https://instagram.com/baari.cafe" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gold-light hover:text-gold transition-colors duration-300"
-            aria-label="Instagram"
-          >
+          <a href="https://instagram.com/baari.cafe" target="_blank" rel="noopener noreferrer" className="text-gold-light hover:text-gold transition-colors duration-300" aria-label="Instagram">
             <Instagram size={20} />
           </a>
         </div>
@@ -63,12 +47,8 @@ const Footer = () => {
         </p>
 
         {/* Copyright */}
-        <p className="font-serif text-xs text-gold/40 tracking-wider uppercase">
-          © 2024 Baari Café. All rights reserved.
-        </p>
+        <p className="font-serif text-xs text-gold/40 tracking-wider uppercase">© 2025 BAARI CAFÉ. ALL RIGHTS RESERVED.</p>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
