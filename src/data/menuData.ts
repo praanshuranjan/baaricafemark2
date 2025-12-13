@@ -35,12 +35,12 @@ export const menuSections: MenuSection[] = [
       { title: 'Nachos with Salsa', price: '₹239', dietType: 'veg', image: '/images/Nachos with Salsa.jpeg' },
       { title: 'Paneer Tikka', price: '₹323', dietType: 'veg', image: '/images/Paneer tikka.jpeg1.jpeg' },
       { title: 'Drums of Heaven', price: '₹369', dietType: 'non-veg', description: 'Succulent chicken legs, crisped to perfection, and glazed with a sweet and tangy sauce. A delectable delight for your taste buds!', image: '/images/Drums of heaven.jpeg' },
-      { title: 'Veg Platter', price: '₹719', dietType: 'veg', smallText: 'honey chilli potato, cheese veggie toast, hakka noodles, peri peri fries, nachos', image: '/images/Veg platter.png' },
-      { title: 'Non Veg Platter', price: '₹839', dietType: 'non-veg', smallText: 'chicken toast, keema chicken fries, chicken nuggets, chicken noodles, chilli chicken', image: '/images/Non veg platter.png' },
-      { title: 'Continental Platter Veg', price: '₹959', dietType: 'veg', smallText: 'any pasta, very veggie pizza (three slices), cheesy garlic sandwich, peri peri fries, garlic toast', image: '/images/Continental veg platter.png' },
-      { title: 'Continental Platter Non Veg', price: '₹1079', dietType: 'non-veg', smallText: 'any chicken pasta, chicken tikka pizza (three slices), cheesy chicken sandwich, keema fries, chicken toast', image: '/images/Continental non veg platter.png' },
-      { title: 'Non Veg Hummus Platter', price: '₹549', dietType: 'non-veg', image: '/images/Non veg hummus platter.png' },
-      { title: 'Veg Hummus Platter', price: '₹499', dietType: 'veg', image: '/images/Veg hummus platter.png' },
+      { title: 'Veg Platter', price: '₹719', dietType: 'veg', description: 'honey chilli potato, cheese veggie toast, hakka noodles, peri peri fries, nachos', image: '/images/Veg platter.png' },
+      { title: 'Non Veg Platter', price: '₹839', dietType: 'non-veg', description: 'chicken toast, keema chicken fries, chicken nuggets, chicken noodles, chilli chicken', image: '/images/Non veg platter.png' },
+      { title: 'Continental Platter Veg', price: '₹959', dietType: 'veg', description: 'any pasta, very veggie pizza (three slices), cheesy garlic sandwich, peri peri fries, garlic toast', image: '/images/Continental veg platter.png' },
+      { title: 'Continental Platter Non Veg', price: '₹1079', dietType: 'non-veg', description: 'any chicken pasta, chicken tikka pizza (three slices), cheesy chicken sandwich, keema fries, chicken toast', image: '/images/Continental non veg platter.png' },
+      { title: 'Non Veg Hummus Platter', price: '₹549', dietType: 'non-veg', description: 'Delight in our exquisite Hummus Platter, a symphony of flavors featuring creamy hummus, warm pita bread, seasoned chickpeas, and zesty peri peri fries', image: '/images/Non veg hummus platter.png' },
+      { title: 'Veg Hummus Platter', price: '₹499', dietType: 'veg', description: 'Grilled paneer, zesty peri peri fries, velvety hummus, and warm pita. A symphony of flavors in every bite!', image: '/images/Veg hummus platter.png' },
     ]
   },
   {
