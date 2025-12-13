@@ -57,6 +57,11 @@ const Footer = () => {
           <span className="text-xs opacity-40">✦</span>
         </div>
 
+        {/* Disclaimer */}
+        <p className="font-serif text-xs text-gold/40 tracking-wider mb-2">
+          * Images are for display purposes only
+        </p>
+
         {/* Copyright */}
         <p className="font-serif text-xs text-gold/40 tracking-wider uppercase">
           © 2024 Baari Café. All rights reserved.

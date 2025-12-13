@@ -81,9 +81,6 @@ const Header = () => {
                 } ${index !== menuSections.length - 1 ? 'border-b border-gray-100' : ''}`}
               >
                 <span className="text-sm font-normal">{section.title}</span>
-                <span className="text-sm text-gray-400">
-                  {section.items.length}
-                </span>
               </button>
             ))}
           </div>
