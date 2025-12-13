@@ -429,3 +429,71 @@ html {
   border: 3px solid hsl(var(--gold) / 0.4);
   border-top: none;
 }
+
+/* Curtain Intro Styles */
+.curtain-texture {
+  background: 
+    linear-gradient(180deg, hsl(var(--midnight)) 0%, hsl(var(--midnight-light)) 50%, hsl(var(--midnight)) 100%);
+}
+
+.curtain-lift-up {
+  animation: curtain-lift-up 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.curtain-lift-down {
+  animation: curtain-lift-down 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes curtain-lift-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+@keyframes curtain-lift-down {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100%); }
+}
+
+.logo-centered {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo-to-header {
+  animation: logo-to-header 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes logo-to-header {
+  0% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  70% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.4);
+    opacity: 1;
+  }
+  100% {
+    top: 24px;
+    left: 50%;
+    transform: translate(-50%, 0) scale(0.4);
+    opacity: 0;
+  }
+}
+
+.animate-text-glow {
+  animation: text-glow 2s ease-in-out infinite;
+}
+
+@keyframes text-glow {
+  0%, 100% { 
+    text-shadow: 0 0 20px hsl(var(--gold) / 0.6), 0 0 40px hsl(var(--gold) / 0.3);
+  }
+  50% { 
+    text-shadow: 0 0 30px hsl(var(--gold) / 0.8), 0 0 60px hsl(var(--gold) / 0.5), 0 0 80px hsl(var(--gold) / 0.3);
+  }
+}
