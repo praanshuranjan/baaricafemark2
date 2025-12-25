@@ -1,4 +1,5 @@
 import { PLACEHOLDER_IMAGE, DietType, MenuItem } from '@/data/menuData';
+import { OptimizedImage } from '@/components/OptimizedImage';
 
 // Diet Icon Component - Baari Style (cream labels for dark bg)
 export const DietIcon = ({ type, showLabel = true }: { type?: DietType; showLabel?: boolean }) => {
@@ -66,11 +67,10 @@ export const FoodCard = ({ item }: { item: MenuItem }) => (
   <div className="menu-card bg-midnight/80 backdrop-blur-sm rounded-xl overflow-hidden border border-gold/30 hover:border-gold/50 shadow-lg hover:shadow-gold/10 transition-all duration-300">
     {/* Image at top */}
     <div className="relative">
-      <img 
-        src={item.image || PLACEHOLDER_IMAGE} 
+      <OptimizedImage
+        src={item.image || PLACEHOLDER_IMAGE}
         alt={item.title}
         className="w-full h-36 object-cover"
-        loading="lazy"
       />
       {item.smallText && (
         <div className="absolute top-2 left-2 bg-gold text-midnight text-[10px] font-bold px-2 py-0.5 rounded">
@@ -106,11 +106,10 @@ export const FoodCard = ({ item }: { item: MenuItem }) => (
 export const FullWidthCard = ({ item }: { item: MenuItem }) => (
   <div className="bg-midnight/80 backdrop-blur-sm rounded-xl overflow-hidden border border-gold/30 shadow-lg col-span-full hover:border-gold/50 hover:shadow-gold/10 transition-all duration-300">
     {/* Large Image */}
-    <img 
-      src={item.image || PLACEHOLDER_IMAGE} 
+    <OptimizedImage
+      src={item.image || PLACEHOLDER_IMAGE}
       alt={item.title}
       className="w-full h-48 object-cover"
-      loading="lazy"
     />
     
     {/* Content - Centered */}
@@ -140,11 +139,10 @@ export const FullWidthCard = ({ item }: { item: MenuItem }) => (
 export const DrinkCard = ({ item }: { item: MenuItem }) => (
   <div className="menu-card bg-midnight/80 backdrop-blur-sm rounded-xl overflow-hidden border border-gold/30 hover:border-gold/50 shadow-lg hover:shadow-gold/10 transition-all duration-300">
     {/* Image */}
-    <img 
-      src={item.image || PLACEHOLDER_IMAGE} 
+    <OptimizedImage
+      src={item.image || PLACEHOLDER_IMAGE}
       alt={item.title}
       className="w-full h-40 object-cover"
-      loading="lazy"
     />
     
     {/* Content */}

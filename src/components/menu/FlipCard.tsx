@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { PLACEHOLDER_IMAGE, DietType, MenuItem } from '@/data/menuData';
 import { DietIcon } from './MenuComponents';
+import { OptimizedImage } from '@/components/OptimizedImage';
 
 // Flip Card Container Component
 const FlipCardContainer = ({ 
@@ -68,11 +69,10 @@ export const FlipFoodCard = ({ item }: { item: MenuItem }) => {
         <div className="flex flex-col h-full">
           {/* Image */}
           <div className="relative">
-            <img 
-              src={item.image || PLACEHOLDER_IMAGE} 
+            <OptimizedImage
+              src={item.image || PLACEHOLDER_IMAGE}
               alt={item.title}
               className="w-full h-36 object-cover"
-              loading="lazy"
             />
             {item.smallText && (
               <div className="absolute top-2 left-2 bg-gold text-midnight text-[10px] font-bold px-2 py-0.5 rounded">
@@ -160,11 +160,10 @@ export const FlipDrinkCard = ({ item }: { item: MenuItem }) => {
       <CardFront>
         <div className="flex flex-col h-full">
           {/* Image */}
-          <img 
-            src={item.image || PLACEHOLDER_IMAGE} 
+          <OptimizedImage
+            src={item.image || PLACEHOLDER_IMAGE}
             alt={item.title}
             className="w-full h-40 object-cover"
-            loading="lazy"
           />
           
           {/* Content */}
