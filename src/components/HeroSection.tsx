@@ -1,4 +1,3 @@
-import heroImage from '@/assets/hero-cafe.png';
 import { OptimizedImage } from '@/components/OptimizedImage';
 
 const HeroSection = () => {
@@ -8,7 +7,7 @@ const HeroSection = () => {
         <div className="relative rounded-xl overflow-hidden shadow-lg">
           {/* Hero Image - Compact banner */}
           <OptimizedImage
-            src={heroImage}
+            src="/images/hero-cafe.png"
             alt="Cozy outdoor cafe courtyard at twilight with string lights and swing chairs"
             className="w-full h-32 sm:h-40 md:h-48 object-cover"
             priority={true}
